@@ -1,5 +1,6 @@
 package com.ksmartsolutions.swoosh
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -42,7 +43,8 @@ class LeagueActivity : AppCompatActivity() {
             if(!mensToggleButton.isChecked && !womensToggleButton.isChecked && !co_edToggleButton.isChecked) {
                 Toast.makeText(this, "Please select one league", Toast.LENGTH_LONG).show()
             } else {
-                //onBackPressed()
+                val skillsIntent = Intent(this, SkillsActivity::class.java)
+                startActivity(skillsIntent)
             }
         }
     }
