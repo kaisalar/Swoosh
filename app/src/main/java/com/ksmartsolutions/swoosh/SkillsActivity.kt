@@ -1,30 +1,29 @@
 package com.ksmartsolutions.swoosh
 
-import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.view.WindowManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_skills.*
 
-class SkillsActivity : AppCompatActivity() {
+class SkillsActivity : BaseActivity() {
+
+    var selectedLeague = ""
+    var selectedSkill = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skills)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-        }
+        selectedLeague = intent.getStringExtra(EXTRA_LEAGUE)
 
         ballerButton.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked) {
+                selectedSkill = "baller"
                 beginnerButton.isChecked = false
             }
         }
 
         beginnerButton.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked) {
+                selectedSkill = "beginner"
                 ballerButton.isChecked = false
             }
         }
@@ -33,7 +32,7 @@ class SkillsActivity : AppCompatActivity() {
             if(!ballerButton.isChecked && !beginnerButton.isChecked) {
                 Toast.makeText(this, "Please select your level", Toast.LENGTH_LONG).show()
             } else {
-                //some code
+                Toast.makeText(this, "League: $selectedLeague, Skill: $selectedSkill", Toast.LENGTH_LONG).show()
             }
         }
     }
