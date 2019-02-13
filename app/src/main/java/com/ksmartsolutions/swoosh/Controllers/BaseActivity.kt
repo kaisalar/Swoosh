@@ -1,4 +1,4 @@
-package com.ksmartsolutions.swoosh
+package com.ksmartsolutions.swoosh.Controllers
 
 import android.os.Build
 import android.os.Bundle

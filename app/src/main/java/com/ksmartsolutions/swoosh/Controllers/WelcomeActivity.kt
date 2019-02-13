@@ -1,7 +1,8 @@
-package com.ksmartsolutions.swoosh
+package com.ksmartsolutions.swoosh.Controllers
 
 import android.content.Intent
 import android.os.Bundle
+import com.ksmartsolutions.swoosh.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 
@@ -15,7 +16,5 @@ class WelcomeActivity : BaseActivity() {
             val leagueIntent = Intent(this, LeagueActivity::class.java)
             startActivity(leagueIntent)
         }
-
-
     }
 }

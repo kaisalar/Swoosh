@@ -1,7 +1,11 @@
-package com.ksmartsolutions.swoosh
+package com.ksmartsolutions.swoosh.Controllers
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.ksmartsolutions.swoosh.R
+import com.ksmartsolutions.swoosh.Utilities.EXTRA_LEAGUE
+import com.ksmartsolutions.swoosh.Utilities.EXTRA_SKILL
 import kotlinx.android.synthetic.main.activity_skills.*
 
 class SkillsActivity : BaseActivity() {
@@ -32,7 +36,10 @@ class SkillsActivity : BaseActivity() {
             if(!ballerButton.isChecked && !beginnerButton.isChecked) {
                 Toast.makeText(this, "Please select your level", Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(this, "League: $selectedLeague, Skill: $selectedSkill", Toast.LENGTH_LONG).show()
+                val finishIntent = Intent(this, FinishActivity::class.java)
+                finishIntent.putExtra(EXTRA_LEAGUE, selectedLeague)
+                finishIntent.putExtra(EXTRA_SKILL, selectedSkill)
+                startActivity(finishIntent)
             }
         }
     }
