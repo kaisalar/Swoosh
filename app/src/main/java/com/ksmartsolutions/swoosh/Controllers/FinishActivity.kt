@@ -1,9 +1,9 @@
 package com.ksmartsolutions.swoosh.Controllers
 
 import android.os.Bundle
+import com.ksmartsolutions.swoosh.Models.Player
 import com.ksmartsolutions.swoosh.R
-import com.ksmartsolutions.swoosh.Utilities.EXTRA_LEAGUE
-import com.ksmartsolutions.swoosh.Utilities.EXTRA_SKILL
+import com.ksmartsolutions.swoosh.Utilities.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_finish.*
 
 class FinishActivity : BaseActivity() {
@@ -12,10 +12,9 @@ class FinishActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-        val league = intent.getStringExtra(EXTRA_LEAGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra(EXTRA_PLAYER) as Player
 
-        val result = "Looking for $league $skill league near you..."
+        val result = "Looking for ${player.league} ${player.skill} league near you..."
 
         finalResultTextView.text = result
     }
