@@ -42,5 +42,7 @@ class SkillsActivity : BaseActivity() {
                 startActivity(finishIntent)
             }
         }
+
+        backButton.setOnClickListener { onBackPressed() }
     }
 }
